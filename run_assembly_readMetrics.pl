@@ -14,7 +14,7 @@ my $settings = {
 use strict;
 no strict "refs";
 use FindBin;
-use lib "$FindBin::RealBin/../lib";
+use lib "$FindBin::RealBin/lib";
 $ENV{PATH} = "$FindBin::RealBin:".$ENV{PATH};
 use AKUtils qw(logmsg);
 
@@ -134,7 +134,7 @@ sub printReadMetricsFromFile{
   if(grep(/$ext/,@samExt)){
     # Bam files are PE if they have at least some fragment sizes.
     # See if tlen is present so that it can be calculated.
-    $isPE=(@{$count{tlen}} > 10)?"yes":"no"; 
+    $isPE=(@{$count{tlen}} > 10)?"yes":"no";
     if($isPE eq 'yes'){
       my $tlenStats=Statistics::Descriptive::Full->new;
       $tlenStats->add_data(@{$count{tlen}});
@@ -369,7 +369,7 @@ sub readSam{
     push(@queueBuffer,[$seq,$qual,$tlen]) if(rand() <= $$settings{sampleFrequency});
     next if(++$numEntries % $bufferSize !=0);
     #print Dumper \@queueBuffer;die;
-    
+
     $Q->enqueue(@queueBuffer);
     @queueBuffer=();
 
@@ -379,7 +379,7 @@ sub readSam{
   }
   $Q->enqueue(@queueBuffer);
   close SAM;
-  
+
   return $numEntries;
 }
 
@@ -398,13 +398,13 @@ sub usage{
          $0 reads.fastq.gz | column -t
     A reads file can be fasta, sff, fastq, or fastq.gz
     The quality file for a fasta file reads.fasta is assumed to be reads.fasta.qual
-  
+
   --fast            fast mode: samples 1% of the reads and extrapolates
   --numcpus     1   Number of cpus
   --qual_offset 33  Set the quality score offset
   --minLength   1   Set the minimum read length used for calculations
   -e        4000000 expected genome size, in bp
-  
+
   HISTOGRAM
   --hist            Generate a histogram of the reads per length
   --reads-per-qual
