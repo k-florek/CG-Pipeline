@@ -1,13 +1,8 @@
 SYNOPSIS
 
-run_pipeline [build|create|assemble|predict|annotate] [-p project] -i target.sff [-r reference.fasta] [-t tag_prefix] [-e expectedGenomeSize]
+This is a minimized version of the CG-Pipeline to only run the readMetrics portion of the CG-Pipeline [https://github.com/lskatz/CG-Pipeline](https://github.com/lskatz/CG-Pipeline).
 
-# or with more control, the three individual stages (asm, pred, annot)
-run_assembly input.sff [, input2.sff, ...] [-R references.mfa]
-
-run_prediction input.mfa [, input2.mfa, ...] -strain_name=name [-tag_prefix=prefix] [-classification=classification] [-R references.mfa] [-o=output_filename.gb]
-
-run_annotation input.gb
+For more information about CG-Pipeline see below or visit [https://github.com/lskatz/CG-Pipeline](https://github.com/lskatz/CG-Pipeline).
 
 
 DESCRIPTION

@@ -3,7 +3,6 @@
 # run_assembly_readMetrics.pl: puts out metrics for a raw reads file
 # Author: Lee Katz <lkatz@cdc.gov>
 
-package PipelineRunner;
 my ($VERSION) = ('$Id: $' =~ /,v\s+(\d+\S+)/o);
 
 my $settings = {
